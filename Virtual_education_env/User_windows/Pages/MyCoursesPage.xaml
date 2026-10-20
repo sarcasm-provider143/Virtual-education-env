@@ -1,0 +1,36 @@
+﻿<Page x:Class="Virtual_education_env.User_windows.Pages.MyCoursesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Virtual_education_env.User_windows.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Мои курсы"
+      Background="Transparent">
+
+    <Grid Margin="32">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="MyCoursesHeader"
+                   Grid.Row="0"
+                   Text="Мои курсы"
+                   Style="{StaticResource HeaderTextStyle}"
+                   Margin="0,0,0,16"/>
+
+        <DataGrid x:Name="MyCoursesDataGrid"
+                  Grid.Row="1"
+                  Style="{StaticResource AppDataGridStyle}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название"      Binding="{Binding title}"      Width="*"/>
+                <DataGridTextColumn Header="Преподаватель" Binding="{Binding teacher}"    Width="220"/>
+                <DataGridTextColumn Header="Часов"         Binding="{Binding hours}"      Width="80"/>
+                <DataGridTextColumn Header="Дата начала"   Binding="{Binding start_date}" Width="120"/>
+                <DataGridTextColumn Header="Статус"        Binding="{Binding status}"     Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

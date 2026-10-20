@@ -1,0 +1,152 @@
+﻿<Window x:Class="Virtual_education_env.RegWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Virtual_education_env"
+        mc:Ignorable="d"
+        Title="Регистрация"
+        Height="720" Width="920"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="{StaticResource BackgroundBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border x:Name="BrandPanel"
+        Grid.Column="0"
+        Background="{StaticResource PrimaryBrush}">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"
+                Margin="40">
+                <Image x:Name="LogoIMG"
+                   Height="300"
+                   Source="Images/logo.jpg"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,20"/>
+                <TextBlock x:Name="TitleLine1TextBlock"
+                   Text='Виртуальная образовательная среда'
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   FontSize="30" FontWeight="Bold"
+                   Foreground="White"
+                   HorizontalAlignment="Center"/>
+                <TextBlock x:Name="SubtitleTextBlock"
+                   Text="Информационно-справочная система"
+                   FontSize="18"
+                   HorizontalAlignment="Center"
+                   Margin="0,16,0,0" Foreground="White"/>
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="FormPanel"
+                Grid.Column="1"
+                Background="{StaticResource SurfaceBrush}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled">
+                <StackPanel VerticalAlignment="Center" Margin="60,30">
+
+                    <TextBlock x:Name="HeaderTextBlock"
+                               Text="Регистрация"
+                               Style="{StaticResource HeaderTextStyle}"/>
+                    <TextBlock x:Name="SubHeaderTextBlock"
+                               Text="Создайте аккаунт для доступа к системе"
+                               Style="{StaticResource SubHeaderTextStyle}"
+                               Margin="0,6,0,24"/>
+
+                    <TextBlock x:Name="LastNameLabel"
+                               Text="Фамилия"
+                               Style="{StaticResource FieldLabelStyle}"/>
+                    <TextBox x:Name="LastNameTextBox"
+                             Style="{StaticResource TextBoxStyle}"/>
+
+                    <TextBlock x:Name="FirstNameLabel"
+                               Text="Имя"
+                               Style="{StaticResource FieldLabelStyle}"
+                               Margin="0,14,0,6"/>
+                    <TextBox x:Name="FirstNameTextBox"
+                             Style="{StaticResource TextBoxStyle}"/>
+
+                    <TextBlock x:Name="MiddleNameLabel"
+                               Text="Отчество (при наличии)"
+                               Style="{StaticResource FieldLabelStyle}"
+                               Margin="0,14,0,6"/>
+                    <TextBox x:Name="MiddleNameTextBox"
+                             Style="{StaticResource TextBoxStyle}"/>
+
+                    <TextBlock x:Name="LoginLabel"
+                               Text="Логин"
+                               Style="{StaticResource FieldLabelStyle}"
+                               Margin="0,14,0,6"/>
+                    <TextBox x:Name="LoginTextBox"
+                             Style="{StaticResource TextBoxStyle}"/>
+
+                    <TextBlock x:Name="EmailLabel"
+                               Text="Email"
+                               Style="{StaticResource FieldLabelStyle}"
+                               Margin="0,14,0,6"/>
+                    <TextBox x:Name="EmailTextBox"
+                             Style="{StaticResource TextBoxStyle}"/>
+
+                    <TextBlock x:Name="PhoneLabel"
+                               Text="Телефон"
+                               Style="{StaticResource FieldLabelStyle}"
+                               Margin="0,14,0,6"/>
+                    <TextBox x:Name="PhoneTextBox"
+                            Style="{StaticResource TextBoxStyle}"/>
+
+                    <TextBlock x:Name="GroupLabel"
+                               Text="Группа"
+                               Style="{StaticResource FieldLabelStyle}"
+                               Margin="0,14,0,6"/>
+                    <ComboBox x:Name="GroupComboBox"
+                              Height="42"
+                              FontFamily="{StaticResource AppFont}"
+                              FontSize="14"
+                              Padding="12,0"
+                              VerticalContentAlignment="Center"
+                              DisplayMemberPath="name"
+                              SelectedValuePath="id"/>
+
+                    <TextBlock x:Name="PasswordLabel"
+                               Text="Пароль"
+                               Style="{StaticResource FieldLabelStyle}"
+                               Margin="0,14,0,6"/>
+                    <PasswordBox x:Name="PasswordBox"
+                                 Style="{StaticResource AppPasswordBoxStyle}"/>
+
+                    <TextBlock x:Name="ConfirmPasswordLabel"
+                               Text="Повторите пароль"
+                               Style="{StaticResource FieldLabelStyle}"
+                               Margin="0,14,0,6"/>
+                    <PasswordBox x:Name="ConfirmPasswordBox"
+                                 Style="{StaticResource AppPasswordBoxStyle}"/>
+
+
+                    <Grid Margin="0,24,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="12"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button x:Name="BackButton"
+                                Grid.Column="0"
+                                Content="Назад"
+                                Style="{StaticResource SecondaryButtonStyle}"
+                                Height="44" Click="BackButton_Click"/>
+
+                        <Button x:Name="RegisterButton"
+                                Grid.Column="2"
+                                Content="Зарегистрироваться"
+                                Style="{StaticResource PrimaryButtonStyle}" Click="RegisterButton_Click"/>
+                    </Grid>
+
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>

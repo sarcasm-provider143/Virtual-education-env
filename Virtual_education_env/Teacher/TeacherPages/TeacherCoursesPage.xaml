@@ -1,0 +1,58 @@
+﻿<Page x:Class="Virtual_education_env.Teacher.TeacherPages.TeacherCoursesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Мои курсы"
+      Background="Transparent">
+
+    <Grid Margin="32">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="Header"
+                   Grid.Row="0"
+                   Text="Мои курсы"
+                   Style="{StaticResource HeaderTextStyle}"
+                   Margin="0,0,0,16"/>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,16">
+            <Button x:Name="AddCourseButton"
+                    Content="+ Добавить курс"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Width="180"
+                    Margin="0,0,12,0"
+                    Click="AddCourseButton_Click"/>
+
+            <Button x:Name="EditCourseButton"
+                    Content="Редактировать"
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    Width="160"
+                    Margin="0,0,12,0"
+                    Click="EditCourseButton_Click"/>
+
+            <Button x:Name="DeleteCourseButton"
+                    Content="Удалить"
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    Width="120"
+                    Click="DeleteCourseButton_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="CoursesDataGrid"
+                  Grid.Row="2"
+                  Style="{StaticResource AppDataGridStyle}"
+                  MouseDoubleClick="CoursesDataGrid_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"          Binding="{Binding id}"          Width="60" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Название"    Binding="{Binding title}"       Width="*"/>
+                <DataGridTextColumn Header="Описание"    Binding="{Binding description}" Width="300"/>
+                <DataGridTextColumn Header="Часов"       Binding="{Binding hours}"       Width="80"/>
+                <DataGridTextColumn Header="Дата начала" Binding="{Binding start_date, StringFormat=dd.MM.yyyy}" Width="120"/>
+                <DataGridTextColumn Header="Студентов"   Binding="{Binding students}"    Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

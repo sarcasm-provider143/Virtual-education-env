@@ -1,0 +1,81 @@
+﻿<Page x:Class="Virtual_education_env.Admin.AdminPages.AdminStudentsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Студенты"
+      Background="Transparent">
+
+    <Grid Margin="32">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="Header"
+                   Grid.Row="0"
+                   Text="Студенты"
+                   Style="{StaticResource HeaderTextStyle}"
+                   Margin="0,0,0,16"/>
+
+        <Grid Grid.Row="1" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="SearchTextBox"
+                     Grid.Column="0"
+                     Style="{StaticResource TextBoxStyle}"
+                     TextChanged="SearchTextBox_TextChanged"/>
+
+            <Button x:Name="ClearSearchButton"
+                    Grid.Column="2"
+                    Content="Очистить"
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    Width="120"
+                    Click="ClearSearchButton_Click"/>
+        </Grid>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,16">
+            <Button x:Name="AddStudentButton"
+                    Content="+ Добавить студента"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Width="220"
+                    Margin="0,0,12,0"
+                    Click="AddStudentButton_Click"/>
+
+            <Button x:Name="EditStudentButton"
+                    Content="Редактировать"
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    Width="160"
+                    Margin="0,0,12,0"
+                    Click="EditStudentButton_Click"/>
+
+            <Button x:Name="DeleteStudentButton"
+                    Content="Удалить"
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    Width="120"
+                    Click="DeleteStudentButton_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="StudentsDataGrid"
+                  Grid.Row="3"
+                  Style="{StaticResource AppDataGridStyle}"
+                  MouseDoubleClick="StudentsDataGrid_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"       Binding="{Binding id}"         Width="60" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Фамилия"  Binding="{Binding lastName}"   Width="150"/>
+                <DataGridTextColumn Header="Имя"      Binding="{Binding firstName}"  Width="130"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding middleName}" Width="150"/>
+                <DataGridTextColumn Header="Группа"   Binding="{Binding group}"      Width="120"/>
+                <DataGridTextColumn Header="Логин"    Binding="{Binding login}"      Width="150"/>
+                <DataGridTextColumn Header="Email"    Binding="{Binding email}"      Width="*"/>
+                <DataGridTextColumn Header="Телефон"  Binding="{Binding phone}"      Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

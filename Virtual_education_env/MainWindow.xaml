@@ -1,0 +1,91 @@
+﻿<Window x:Class="Virtual_education_env.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Virtual_education_env"
+        mc:Ignorable="d"
+        Title="Вход в систему"
+        Height="620" Width="920"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="{StaticResource BackgroundBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border x:Name="BrandPanel"
+                Grid.Column="0"
+                Background="{StaticResource PrimaryBrush}">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Margin="40">
+                <Image x:Name="LogoIMG"
+                           Height="300"
+                           Source="Images/logo.jpg"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
+                <TextBlock x:Name="TitleLine1TextBlock"
+                           Text='Виртуальная образовательная среда'
+                           TextAlignment="Center"
+                           TextWrapping="Wrap"
+                           FontSize="30" FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center"/>
+                <TextBlock x:Name="SubtitleTextBlock"
+                           Text="Информационно-справочная система"
+                           FontSize="18"
+                           HorizontalAlignment="Center"
+                           Margin="0,16,0,0" Foreground="White"/>
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="FormPanel"
+                Grid.Column="1"
+                Background="{StaticResource SurfaceBrush}">
+            <StackPanel VerticalAlignment="Center" Margin="60,0">
+
+                <TextBlock x:Name="HeaderTextBlock"
+                           Text="Вход в систему"
+                           Style="{StaticResource HeaderTextStyle}"/>
+                <TextBlock x:Name="SubHeaderTextBlock"
+                           Text="Введите логин и пароль для авторизации"
+                           Style="{StaticResource SubHeaderTextStyle}"
+                           Margin="0,6,0,32"/>
+
+                <TextBlock x:Name="LoginLabel"
+                           Text="Логин"
+                           Style="{StaticResource FieldLabelStyle}"/>
+                <TextBox x:Name="LoginTextBox"
+                         Style="{StaticResource TextBoxStyle}"/>
+
+                <TextBlock x:Name="PasswordLabel"
+                           Text="Пароль"
+                           Style="{StaticResource FieldLabelStyle}"
+                           Margin="0,18,0,6"/>
+                <PasswordBox x:Name="PasswordBox"
+                             Style="{StaticResource AppPasswordBoxStyle}"/>
+
+                <Button x:Name="LoginButton"
+                        Content="Войти"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Margin="0,24,0,0" Click="LoginButton_Click"/>
+
+                <StackPanel x:Name="RegisterPanel"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="0,18,0,0">
+                    <TextBlock x:Name="NoAccountTextBlock"
+                               Text="Нет аккаунта? "
+                               Style="{StaticResource SubHeaderTextStyle}"/>
+                    <Button x:Name="RegisterButton"
+                            Content="Зарегистрироваться"
+                            Style="{StaticResource LinkButtonStyle}" Click="RegisterButton_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

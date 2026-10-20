@@ -1,0 +1,94 @@
+﻿<Page x:Class="Virtual_education_env.Admin.AdminPages.AdminEnrollmentsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Записи на курсы"
+      Background="Transparent">
+
+    <Grid Margin="32">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="Header"
+                   Grid.Row="0"
+                   Text="Записи на курсы"
+                   Style="{StaticResource HeaderTextStyle}"
+                   Margin="0,0,0,16"/>
+
+        <Grid Grid.Row="1" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock x:Name="CourseFilterLabel"
+                           Text="Курс"
+                           Style="{StaticResource FieldLabelStyle}"/>
+                <ComboBox x:Name="CourseFilterComboBox"
+                          Style="{StaticResource AppComboBoxStyle}"
+                          SelectionChanged="CourseFilterComboBox_SelectionChanged"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <TextBlock x:Name="StatusFilterLabel"
+                           Text="Статус"
+                           Style="{StaticResource FieldLabelStyle}"/>
+                <ComboBox x:Name="StatusFilterComboBox"
+                          Style="{StaticResource AppComboBoxStyle}"
+                          SelectionChanged="StatusFilterComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Все" Tag="all"/>
+                    <ComboBoxItem Content="Активные" Tag="активен"/>
+                    <ComboBoxItem Content="Завершённые" Tag="завершён"/>
+                    <ComboBoxItem Content="Отчисленные" Tag="отчислен"/>
+                </ComboBox>
+            </StackPanel>
+
+            <Button x:Name="ClearFiltersButton"
+                    Grid.Column="4"
+                    Content="Сбросить"
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    Width="140"
+                    VerticalAlignment="Bottom"
+                    Height="42"
+                    Click="ClearFiltersButton_Click"/>
+        </Grid>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,16">
+            <Button x:Name="ExpelButton"
+                    Content="Отчислить"
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    Width="140"
+                    Margin="0,0,12,0"
+                    Click="ExpelButton_Click"/>
+
+            <Button x:Name="RestoreButton"
+                    Content="Восстановить"
+                    Style="{StaticResource SecondaryButtonStyle}"
+                    Width="160"
+                    Click="RestoreButton_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="EnrollmentsDataGrid"
+                  Grid.Row="3"
+                  Style="{StaticResource AppDataGridStyle}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"           Binding="{Binding id}"            Width="60" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Студент"      Binding="{Binding student}"       Width="*"/>
+                <DataGridTextColumn Header="Группа"       Binding="{Binding group}"         Width="120"/>
+                <DataGridTextColumn Header="Курс"         Binding="{Binding course}"        Width="*"/>
+                <DataGridTextColumn Header="Преподаватель" Binding="{Binding teacher}"      Width="200"/>
+                <DataGridTextColumn Header="Дата"         Binding="{Binding enrolledAt, StringFormat=dd.MM.yyyy}" Width="120"/>
+                <DataGridTextColumn Header="Статус"       Binding="{Binding status}"        Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
